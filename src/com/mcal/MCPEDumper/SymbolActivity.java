@@ -17,6 +17,7 @@ public class SymbolActivity extends Activity
 	private int type;
 	private String demangledName;
 	private String className;
+	private long size;
 	@Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -25,6 +26,7 @@ public class SymbolActivity extends Activity
 
 		setContentView(R.layout.symbol_activity);
 		type = getIntent().getExtras().getInt("type");
+		size = getIntent().getExtras().getLong("size");
 		name = getIntent().getExtras().getString("name");
 		demangledName = getIntent().getExtras().getString("demangledName");
 		path = getIntent().getExtras().getString("filePath");
@@ -43,6 +45,10 @@ public class SymbolActivity extends Activity
 		TextView textDemangledName=(TextView)findViewById(R.id.symbolactivityTextViewDemangledName);
 		textDemangledName.setText(demangledName);
 
+		TextView sizeName=(TextView)findViewById(R.id.symbolactivityTextViewSize);
+		sizeName.setText(new Integer((int)size).toString());
+		
+		
 		String arguments=new String();
 		if (demangledName.indexOf("(") != -1 && demangledName.lastIndexOf(")") != -1)
 			arguments = demangledName.substring(demangledName.indexOf("(") + 1, demangledName.lastIndexOf(")"));

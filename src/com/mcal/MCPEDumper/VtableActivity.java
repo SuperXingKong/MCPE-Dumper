@@ -74,6 +74,7 @@ public class VtableActivity extends Activity
 			map.put("title", vtable.getVtables().get(i).getDemangledName());
             map.put("info", vtable.getVtables().get(i).getName());
 			map.put("type", vtable.getVtables().get(i).getType());
+			map.put("size", vtable.getVtables().get(i).getSize());
             list.add(map);
         } 
         return list; 
@@ -85,6 +86,7 @@ public class VtableActivity extends Activity
 		public TextView title;
 		public TextView info;
 		public int type;
+		public long size;
     }
 
 	private final class ItemClickListener implements OnItemClickListener
@@ -96,6 +98,7 @@ public class VtableActivity extends Activity
 			bundle.putString("demangledName",(String)(((ViewHolder)view.getTag()).title.getText()));
 			bundle.putString("name",(String)(((ViewHolder)view.getTag()).info.getText()));
 			bundle.putInt("type",((ViewHolder)view.getTag()).type);
+			bundle.putLong("size",((ViewHolder)view.getTag()).size);
 			bundle.putString("filePath",path);
 			Intent intent=new Intent(VtableActivity.this,SymbolActivity.class);
 			intent.putExtras(bundle);

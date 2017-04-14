@@ -47,7 +47,9 @@ public class SymbolsActivity extends Activity
 			map.put("title", Dumper.symbols.get(i).getDemangledName());
             map.put("info", Dumper.symbols.get(i).getName());
 			map.put("type", Dumper.symbols.get(i).getType());
-            list.add(map);
+            map.put("size", Dumper.symbols.get(i).getSize());
+            
+			list.add(map);
         } 
         return list; 
     } 
@@ -76,6 +78,7 @@ public class SymbolsActivity extends Activity
 		public TextView title;
 		public TextView info;
 		public int type;
+		public long size;
     }
 	
 	private final class ItemClickListener implements OnItemClickListener
@@ -88,6 +91,8 @@ public class SymbolsActivity extends Activity
 			bundle.putString("name",(String)(((ViewHolder)view.getTag()).info.getText()));
 			bundle.putInt("type",((ViewHolder)view.getTag()).type);
 			bundle.putString("filePath",path);
+			bundle.putLong("size",((ViewHolder)view.getTag()).size);
+			
 			Intent intent=new Intent(SymbolsActivity.this,SymbolActivity.class);
 			intent.putExtras(bundle);
 			startActivity(intent);

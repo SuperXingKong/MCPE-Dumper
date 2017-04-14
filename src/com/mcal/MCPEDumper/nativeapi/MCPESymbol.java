@@ -6,13 +6,15 @@ public class MCPESymbol
 	private String demangledName;
 	private int type;
 	private int bind;
+	private long size;
 	
-	public MCPESymbol(String name,String demangledName,int type,int bind)
+	public MCPESymbol(String name,String demangledName,int type,int bind,long size)
 	{
 		this.type=type;
 		this.demangledName=demangledName;
 		this.name=name;
 		this.bind=bind;
+		this.size=size;
 	}
 
 	public void setDemangledName(String demangledName)
@@ -53,5 +55,15 @@ public class MCPESymbol
 	public int getBind()
 	{
 		return type;
+	}
+	
+	public void setBind(long size)
+	{
+		this.size = size;
+	}
+
+	public long getSize()
+	{
+		return size;
 	}
 }

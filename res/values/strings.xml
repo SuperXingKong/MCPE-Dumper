@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MCPE Dumper</string>
+    <string name="app_name">Blocks Dumper</string>
 	<string name="done">Done</string>
 	<string name="search">Search</string>
 	<string name="menu">Menu</string>
@@ -9,6 +9,7 @@
 	<string name="pickFromSdcard">Pick From Sdcard</string>
 	<string name="pickFromInstalled">Pick From Installed</string>
 	<string name="error">ERROR</string>
+	<string name="sizeName">Size:</string>
 	<string name="pickSo">Please pick libminecraftpe.so</string>
 	<string name="noFile">No File Manager Found.</string>
 	<string name="noMCPE">No MinecraftPE Found.</string>

@@ -95,6 +95,10 @@ JNIEXPORT jshort JNICALL Java_com_mcal_MCPEDumper_nativeapi_MCPEDumper_getBindAt
 {
 	return (jshort)((short)mcpeSymbolsList[pos].bind);
 }
+JNIEXPORT jlong JNICALL Java_com_mcal_MCPEDumper_nativeapi_MCPEDumper_getSizeAt(JNIEnv* env, jobject thiz,jint pos)
+{
+	return (jlong)((long)mcpeSymbolsList[pos].size);
+}
 JNIEXPORT void JNICALL Java_com_mcal_MCPEDumper_nativeapi_MCPEDumper_load(JNIEnv* env, jobject thiz,jstring path)
 {
 	elfio reader;

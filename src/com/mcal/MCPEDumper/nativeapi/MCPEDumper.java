@@ -9,6 +9,7 @@ public class MCPEDumper
 	public static native short getTypeAt(int pos);
 	public static native short getBindAt(int pos);
 	public static native int getSize();
+	public static native long getSizeAt(int pos);
 	public static native String demangle(String name);
 	public static native String demangleOnly(String name);
 }

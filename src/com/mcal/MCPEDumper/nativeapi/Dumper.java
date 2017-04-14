@@ -18,7 +18,7 @@ public class Dumper
 			String demangledName=MCPEDumper.getDemangledNameAt(i);
 			if (demangledName == null || demangledName.isEmpty() || demangledName == "" || demangledName == " ")
 				demangledName = MCPEDumper.getNameAt(i);
-			MCPESymbol newSymbol=new MCPESymbol(MCPEDumper.getNameAt(i), demangledName, MCPEDumper.getTypeAt(i), MCPEDumper.getBindAt(i));
+			MCPESymbol newSymbol=new MCPESymbol(MCPEDumper.getNameAt(i), demangledName, MCPEDumper.getTypeAt(i), MCPEDumper.getBindAt(i),MCPEDumper.getSizeAt(i));
 			symbols.addElement(newSymbol);
 		}
 	}

@@ -64,7 +64,9 @@ public class ClassActivity extends Activity
 			map.put("title", classThis.getSymbols().get(i).getDemangledName());
             map.put("info", classThis.getSymbols().get(i).getName());
 			map.put("type", classThis.getSymbols().get(i).getType());
-            list.add(map);
+			map.put("size", classThis.getSymbols().get(i).getSize());
+			
+			list.add(map);
         } 
         return list; 
     }
@@ -210,6 +212,7 @@ public class ClassActivity extends Activity
 		public TextView title;
 		public TextView info;
 		public int type;
+		public long size;
     }
 
 	private final class ItemClickListener implements OnItemClickListener
@@ -221,6 +224,7 @@ public class ClassActivity extends Activity
 			bundle.putString("demangledName", (String)(((ViewHolder)view.getTag()).title.getText()));
 			bundle.putString("name", (String)(((ViewHolder)view.getTag()).info.getText()));
 			bundle.putInt("type", ((ViewHolder)view.getTag()).type);
+			bundle.putLong("size", ((ViewHolder)view.getTag()).size);
 			bundle.putString("filePath", path);
 			Intent intent=new Intent(ClassActivity.this, SymbolActivity.class);
 			intent.putExtras(bundle);

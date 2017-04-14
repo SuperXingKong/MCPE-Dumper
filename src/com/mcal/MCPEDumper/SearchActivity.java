@@ -7,6 +7,7 @@ import com.mcal.MCPEDumper.nativeapi.*;
 import java.util.*;
 import android.widget.AdapterView.*;
 import android.content.*;
+import android.util.*;
 
 public class SearchActivity extends Activity
 {
@@ -103,6 +104,8 @@ public class SearchActivity extends Activity
 			map.put("title", searchResult.get(i).getDemangledName());
             map.put("info", searchResult.get(i).getName());
 			map.put("type", searchResult.get(i).getType());
+			map.put("size", searchResult.get(i).getSize());
+			
             list.add(map);
         }
         return list;
@@ -114,6 +117,7 @@ public class SearchActivity extends Activity
 		public TextView title;
 		public TextView info;
 		public int type;
+		public long size;
     }
 
 	private final class ItemClickListener implements OnItemClickListener
@@ -126,6 +130,7 @@ public class SearchActivity extends Activity
 			bundle.putString("name",(String)(((ViewHolder)view.getTag()).info.getText()));
 			bundle.putInt("type",((ViewHolder)view.getTag()).type);
 			bundle.putString("filePath",path);
+			bundle.putLong("size",((ViewHolder)view.getTag()).size);
 			Intent intent=new Intent(SearchActivity.this,SymbolActivity.class);
 			intent.putExtras(bundle);
 			startActivity(intent);
