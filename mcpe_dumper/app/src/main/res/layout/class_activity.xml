@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:layout_height="match_parent">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="65dp">
+
+				<android.support.v7.widget.AppCompatImageView
+					android:layout_width="65dp"
+					android:layout_height="65dp"
+					android:src="@drawable/ic_package_variant"/>
+
+				<ScrollView
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:layout_height="65dp">
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:orientation="vertical"
+						android:layout_height="65dp">
+
+						<android.support.v7.widget.AppCompatTextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:id="@+id/classactivityTextViewName"
+							android:textIsSelectable="true"
+							android:maxLines="1"
+							android:textSize="50sp"/>
+
+					</LinearLayout>
+
+				</ScrollView>
+
+			</LinearLayout>
+
+			<View
+				android:layout_height="1dp"
+				android:layout_width="match_parent"
+				android:background="#44A1FF"/>
+			
+			<ListView 
+				android:id="@+id/class_activity_list_view" 
+				android:layout_width="fill_parent" 
+				android:layout_height="match_parent" 
+				android:fastScrollEnabled="true"/> 
+
+		</LinearLayout>
+
+	<android.support.v7.widget.AppCompatTextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true"
+		android:layout_marginRight="90dp"
+		android:layout_marginBottom="120dp"
+		android:background="#CCCCCC"
+		android:visibility="gone"
+		android:id="@+id/classactivityTextViewButtonFloatVtable"
+		android:text="@string/ownedVtable"/>
+
+	<android.support.design.widget.FloatingActionButton
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true"
+		android:layout_marginRight="30dp"
+		android:src="@drawable/ic_lumx"
+		android:layout_marginBottom="100dp"
+		android:onClick="toVtableActivity"
+		android:id="@+id/classactivityButtonFloat"
+		android:visibility="gone"/>
+
+	<android.support.v7.widget.AppCompatTextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true"
+		android:layout_marginRight="90dp"
+		android:layout_marginBottom="50dp"
+		android:background="#CCCCCC"
+		android:id="@+id/classactivityTextViewButtonFloatSave"
+		android:text="@string/save"/>
+
+	<android.support.design.widget.FloatingActionButton
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true"
+		android:layout_marginRight="30dp"
+		android:layout_marginBottom="30dp"
+		android:onClick="save"
+		android:id="@+id/classactivityButtonFloatSave"/>
+
+</RelativeLayout>
+
