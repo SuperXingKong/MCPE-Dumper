@@ -39,4 +39,5 @@
 	<string name="vtableActivity">vtable for </string>
 	<string name="demanglerActivity">Name Demangler</string>
 	<string name="savedIn">All files will be saved in:</string>
+	<string name="please_wait">Please wait...</string>
 </resources>

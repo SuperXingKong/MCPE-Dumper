@@ -2,6 +2,8 @@ package org.mcal.mcpe_dumper;
 
 import android.content.*;
 import android.os.*;
+import android.support.design.widget.*;
+import android.support.v7.app.*;
 import android.view.*;
 import android.widget.*;
 import android.widget.AdapterView.*;
@@ -9,8 +11,6 @@ import java.util.*;
 import org.mcal.mcpe_dumper.nativeapi.*;
 import org.mcal.mcpe_dumper.util.*;
 import org.mcal.mcpe_dumper.vtable.*;
-import android.support.v7.app.*;
-import android.support.design.widget.*;
 
 public class ClassActivity extends AppCompatActivity
 {
@@ -43,6 +43,18 @@ public class ClassActivity extends AppCompatActivity
 			((TextView)findViewById(R.id.classactivityTextViewButtonFloatVtable)).setVisibility(View.VISIBLE);
 			((FloatingActionButton)findViewById(R.id.classactivityButtonFloat)).setVisibility(View.VISIBLE);
 		}
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if(item.getItemId() == android.R.id.home)
+		{
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	private List<Map<String, Object>> getData() 
@@ -56,10 +68,10 @@ public class ClassActivity extends AppCompatActivity
         { 
             map = new HashMap<String, Object>(); 
 			if (classThis.getSymbols().get(i).getType() == 1)
-				map.put("img", R.drawable.ic_lumx); 
+				map.put("img", R.drawable.ic_note); 
 			else if (classThis.getSymbols().get(i).getType() == 2)
 				map.put("img", R.drawable.ic_package);
-			else map.put("img", R.drawable.ic_note);
+			else map.put("img", R.drawable.ic_question_mark_circle);
 			map.put("title", classThis.getSymbols().get(i).getDemangledName());
             map.put("info", classThis.getSymbols().get(i).getName());
 			map.put("type", classThis.getSymbols().get(i).getType());
@@ -188,13 +200,13 @@ public class ClassActivity extends AppCompatActivity
 
 	public void showLoadingProgressDialog()
 	{
-		dialog = new AlertDialog.Builder(this).setTitle(R.string.loading).create();
+		dialog = new AlertDialog.Builder(this).setTitle(R.string.loading).setView(R.layout.loading_dialog).setCancelable(false).create();
 		dialog.show();
 	}
 
 	public void showSavingProgressDialog()
 	{
-		dialog = new AlertDialog.Builder(this).setTitle( getString(R.string.saving)).create();
+		dialog = new AlertDialog.Builder(this).setTitle( getString(R.string.saving)).setView(R.layout.loading_dialog).setCancelable(false).create();
 		dialog.show();
 	}
 

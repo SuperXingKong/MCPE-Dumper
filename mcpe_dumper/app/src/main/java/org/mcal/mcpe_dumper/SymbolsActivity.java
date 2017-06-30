@@ -40,10 +40,10 @@ public class SymbolsActivity extends AppCompatActivity
             map = new HashMap<String, Object>(); 
 			
 			if (Dumper.symbols.get(i).getType() == 1)
-				map.put("img", R.drawable.ic_lumx); 
+				map.put("img", R.drawable.ic_note); 
 			else if (Dumper.symbols.get(i).getType() == 2)
 				map.put("img", R.drawable.ic_package);
-			else map.put("img", R.drawable.ic_note);
+			else map.put("img", R.drawable.ic_question_mark_circle);
 			map.put("title", Dumper.symbols.get(i).getDemangledName());
             map.put("info", Dumper.symbols.get(i).getName());
 			map.put("type", Dumper.symbols.get(i).getType());

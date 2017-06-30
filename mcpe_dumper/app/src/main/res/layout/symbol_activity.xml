@@ -18,43 +18,43 @@
 
 			<LinearLayout
 				android:layout_width="match_parent"
-				android:layout_height="100dp">
+				android:layout_height="50dp">
 
 				<android.support.v7.widget.AppCompatImageView
-					android:layout_width="100dp"
-					android:layout_height="100dp"
+					android:layout_width="50dp"
+					android:layout_height="50dp"
 					android:id="@+id/symbolactivityImageView"/>
 
-				<ScrollView
+				<HorizontalScrollView
 					android:layout_width="match_parent"
-					android:orientation="horizontal"
-					android:layout_height="100dp">
+					android:layout_height="50dp">
 
 					<LinearLayout
 						android:layout_width="wrap_content"
 						android:orientation="vertical"
-						android:layout_height="100dp">
+						android:layout_height="50dp"
+						android:gravity="center_vertical">
 
 						<android.support.v7.widget.AppCompatTextView
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:id="@+id/symbolactivityTextViewDemangledName"
 							android:textIsSelectable="true"
-							android:singleLine="true"
-							android:textSize="40sp"/>
+							android:maxLines="1"
+							android:textSize="15sp"/>
 
 						<android.support.v7.widget.AppCompatTextView
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:id="@+id/symbolactivityTextViewName"
 							android:textIsSelectable="true"
-							android:singleLine="true"
-							android:textSize="35sp"
+							android:maxLines="1"
+							android:textSize="10sp"
 							android:layout_marginTop="2dp"/>
 
 					</LinearLayout>
 
-				</ScrollView>
+				</HorizontalScrollView>
 
 			</LinearLayout>
 
@@ -138,7 +138,7 @@
 					android:id="@+id/symbolactivityTextViewArguments"/>
 
 			</LinearLayout>
-			
+
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:orientation="horizontal"

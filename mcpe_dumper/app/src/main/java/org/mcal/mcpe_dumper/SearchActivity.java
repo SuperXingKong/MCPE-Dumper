@@ -7,10 +7,11 @@ import android.widget.*;
 import android.widget.AdapterView.*;
 import java.util.*;
 import org.mcal.mcpe_dumper.nativeapi.*;
+import android.support.design.widget.*;
 
 public class SearchActivity extends AppCompatActivity
 {
-	private EditText editText;
+	private TextInputLayout editText;
 	private List<Map<String, Object>> data; 
 	private String path;
 	private ListView list;
@@ -20,20 +21,32 @@ public class SearchActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 		setContentView(R.layout.search_activity);
 
-		editText = (EditText)findViewById(R.id.searchactivityEditText);
+		editText = (TextInputLayout)findViewById(R.id.searchactivityEditText);
 		path = getIntent().getExtras().getString("filePath");
 		list = (ListView)findViewById(R.id.search_activity_list_view); 
 		data = search_datas("", false);
 		ResultAdapter adapter = new ResultAdapter(this);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new ItemClickListener());
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	public void search(View view)
 	{
-		String key=editText.getText().toString();
+		String key=editText.getEditText().getText().toString();
 		boolean usePattern=((CheckBox)findViewById(R.id.searchactivityCheckBoxUsePattern)).isChecked();
 		search(key, usePattern);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if(item.getItemId() == android.R.id.home)
+		{
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	private void search(final String key, final boolean usePattern)
@@ -96,10 +109,10 @@ public class SearchActivity extends AppCompatActivity
         { 
             map = new HashMap<String, Object>(); 
 			if (searchResult.get(i).getType() == 1)
-				map.put("img", R.drawable.ic_lumx); 
+				map.put("img", R.drawable.ic_note); 
 			else if (searchResult.get(i).getType() == 2)
 				map.put("img", R.drawable.ic_package);
-			else map.put("img", R.drawable.ic_note);
+			else map.put("img", R.drawable.ic_question_mark_circle);
 			map.put("title", searchResult.get(i).getDemangledName());
             map.put("info", searchResult.get(i).getName());
 			map.put("type", searchResult.get(i).getType());

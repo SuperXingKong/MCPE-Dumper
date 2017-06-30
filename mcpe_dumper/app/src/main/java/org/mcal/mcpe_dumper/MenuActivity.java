@@ -18,6 +18,18 @@ public class MenuActivity extends AppCompatActivity
 		setContentView(R.layout.menu_activity);
 
 		path = getIntent().getExtras().getString("filePath");
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if(item.getItemId() == android.R.id.home)
+		{
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	public void toNameDemangler(View view)
@@ -64,7 +76,7 @@ public class MenuActivity extends AppCompatActivity
 	};
 	public void saveSymbols(View view)
 	{
-		mDialog = new AlertDialog.Builder(this).setTitle(R.string.saving).create();
+		mDialog = new AlertDialog.Builder(this).setTitle(R.string.saving).setView(R.layout.loading_dialog).setCancelable(false).create();
 		mDialog.show();
 		mBar = Snackbar.make(getWindow().getDecorView(), getString(R.string.done), 2500);
 		new Thread()

@@ -20,17 +20,22 @@ public class SymbolActivity extends AppCompatActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
-
+		
 		setContentView(R.layout.symbol_activity);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		type = getIntent().getExtras().getInt("type");
 		size = getIntent().getExtras().getLong("size");
 		name = getIntent().getExtras().getString("name");
 		demangledName = getIntent().getExtras().getString("demangledName");
 		path = getIntent().getExtras().getString("filePath");
 
-		ImageView imageTitile=(ImageView)findViewById(R.id.symbolactivityImageView);
-		imageTitile.setImageResource(R.drawable.ic_package);
+		ImageView imageTitle=(ImageView)findViewById(R.id.symbolactivityImageView);
+		if (type == 1)
+			imageTitle.setImageResource(R.drawable.ic_note); 
+		else if (type == 2)
+			imageTitle.setImageResource(R.drawable.ic_package);
+		else imageTitle.setImageResource(R.drawable.ic_question_mark_circle);
 
 		TextView textName=(TextView)findViewById(R.id.symbolactivityTextViewName);
 		textName.setText(name);
@@ -91,6 +96,16 @@ public class SymbolActivity extends AppCompatActivity
 			findViewById(R.id.symbolactivityTextViewButtonFloatClass).setVisibility(View.VISIBLE);
 		}
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if(item.getItemId() == android.R.id.home)
+		{
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 	public void toVtableActivity(View view)
 	{
@@ -149,7 +164,7 @@ public class SymbolActivity extends AppCompatActivity
 
 	public void showProgressDialog()
 	{
-		dialog = new AlertDialog.Builder(this).setTitle(R.string.loading).create();
+		dialog = new AlertDialog.Builder(this).setTitle(R.string.loading).setView(R.layout.loading_dialog).setCancelable(false).create();
 		dialog.show();
 	}
 	

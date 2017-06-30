@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity
 			AlertDialog dialog=new AlertDialog.Builder(this).setTitle(R.string.error).setMessage(R.string.noMCPE).create();
 			dialog.show();
 		}
-
 		loadSo(mcPackageContext.getApplicationInfo().nativeLibraryDir + File.separator + "libminecraftpe.so");
 	}
 
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity
 
 	public void showProgressDialog()
 	{
-		dialog = new AlertDialog.Builder(MainActivity.this).setTitle(R.string.loading).create();
+		dialog = new AlertDialog.Builder(MainActivity.this).setTitle(R.string.loading).setView(R.layout.loading_dialog).setCancelable(false).create();
 		dialog.show();
 	}
 	public void dismissProgressDialog()

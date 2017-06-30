@@ -37,6 +37,18 @@ public class VtableActivity extends AppCompatActivity
 		VtablesAdapter adapter = new VtablesAdapter(this);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(new ItemClickListener());
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if(item.getItemId() == android.R.id.home)
+		{
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	
 	public void save(View view)

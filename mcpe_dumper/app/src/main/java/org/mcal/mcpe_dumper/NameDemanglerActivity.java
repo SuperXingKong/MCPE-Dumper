@@ -25,6 +25,8 @@ public class NameDemanglerActivity extends AppCompatActivity
 		ViewGroup.LayoutParams params2=editText2.getLayoutParams();
 		params2.width=width/2-1;
 		editText2.setLayoutParams(params2);
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 	
 	public void demangle(View view)
@@ -36,5 +38,15 @@ public class NameDemanglerActivity extends AppCompatActivity
 		String toName=MCPEDumper.demangle(editText1.getText().toString());
 		editText2.getText().clear();
 		editText2.getText().append(toName);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if(item.getItemId() == android.R.id.home)
+		{
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

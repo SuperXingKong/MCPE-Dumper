@@ -12,7 +12,7 @@
 	<string name="error">错误</string>
 	<string name="pickSo">请选取so文件。</string>
 	<string name="noFile">没有有效的文件管理器</string>
-	<string name="noMCPE">没有安装我的世界携带版</string>
+	<string name="noMCPE">没有安装我的世界携带版_(:з」∠)_</string>
 	<string name="symbols">符号表</string>
 	<string name="objects">对象表</string>
 	<string name="ownedVtable">所有的虚函表</string>
@@ -39,5 +39,5 @@
 	<string name="demanglerActivity">反修饰器</string>
 	<string name="classActivity">类</string>
 	<string name="savedIn">所有文件保存在:</string>
-	
+	<string name="please_wait">请稍等(´･ _ ･`)...</string>
 </resources>
